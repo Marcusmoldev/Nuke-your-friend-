@@ -1,0 +1,57 @@
+private ["_bombArr","_count","_pos", "_bomb","_dabomb"];
+if ((getPlayerUID player) in ["76561198124900000"]) then {  //steam user ID you want to blow up here
+_count = 100;
+
+_pos = getPos player;
+
+
+
+	for "_i" from _count to 0 step -1 do 
+	{
+		call bombexp;
+	};
+
+bombexp = {
+	_bombArr = [
+		
+		["Bo_GBU12_LGB_F35"],
+		["Bo_FAB_250"],
+		["Bo_Mk82"],
+		["M_R73_AA"],
+		["M_Ch29_AT"],
+		["M_Maverick_AT"],
+		["M_9M311_AA"],
+		["M_Stinger_AA"],
+		["Sh_100_HEAT"],
+		["ARTY_Sh_120_HE"],
+		["120mmHE_M120"],
+		["Sh_81_HE"],
+		["Sh_81_WP"],
+		["Sh_81_ILLUM"],
+		["Sh_82_HE"],
+		["Sh_82_WP"],
+		["Sh_82_ILLUM"],
+		["Sh_40_HE"],
+		["Sh_40_SABOT"],
+		["M_Bolide_AA"],
+		["B_20mm_AP"],
+		["B_30mm_HE"],
+		["B_30mm_AP"],
+		["PG15V"],
+		["M_AT3_AT"],
+		["M_AT3_AT"],
+		["B_20mm_AP"],
+		["B_30x113mm_M789_HEDP"]
+
+	];
+
+	_bomb = _bombArr call BIS_fnc_selectRandom select 0;
+
+
+	_dabomb = objNull;
+	_this = createVehicle [_bomb,_pos, [], 2, "CAN_COLLIDE"];
+	_dabomb = _this;
+};
+
+
+};
